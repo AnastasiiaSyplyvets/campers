@@ -7,21 +7,20 @@ import {
 import sprite from 'assets/sprite.svg';
 
 export const Header = () => {
-
   return (
     <HeaderContainer>
       <Navigation>
-        <StyledLink to="/first">
+        <StyledLink to="/catalog">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
-          First
+          Catalog
         </StyledLink>
-        <StyledLink to="/second">
+        <StyledLink to="/favorites">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
-          Second
+          Favorites
         </StyledLink>
       </Navigation>
     </HeaderContainer>
