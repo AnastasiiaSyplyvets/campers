@@ -6,7 +6,7 @@ import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
-const test = import.meta.env.VITE_API_TEST;
+// const test = import.meta.env.VITE_API_TEST;
 
 function App() {
   return (
