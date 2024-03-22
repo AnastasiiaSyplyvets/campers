@@ -1,0 +1,65 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.container {
+  width: 360px;
+}
+
+.camperBtn {
+  outline: none;
+
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #101828;
+
+  margin-bottom: 48px;
+}
+
+.searchBtn {
+  width: 173px;
+  height: 56px;
+  border-radius: 200px;
+  border: none;
+  background-color: #e44848;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.locationInput {
+  width: 360px;
+  height: 56px;
+  outline: none;
+  border-radius: 10px;
+  border-color: #f7f7f7;
+  background-color: #f7f7f7;
+  margin-top: 8px;
+  margin-bottom: 32px;
+
+  &::placeholder {
+    text-indent: 40px;
+  }
+}
+
+.locationSvg {
+  position: absolute;
+  top: 42px;
+  left: 10px;
+}
