@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 
 axios.defaults.baseURL = 'https://65fb28d214650eb2100989b0.mockapi.io/api/';
 
@@ -8,6 +7,7 @@ export const fetchCamperList = createAsyncThunk(
   'campers/list',
   async (_, thunkAPI) => {
     console.log('fetch in fetchCamperList');
+
     try {
       const response = await axios.get('/campers');
       //   console.log(response);

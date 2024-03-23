@@ -2,15 +2,36 @@ import { useDispatch } from 'react-redux';
 
 import { fetchCamperList } from '../../redux/operations';
 import { Camper } from '../../components/Camper/Camper';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import sprite from '../../assets/sprite.svg';
 import styles from '../CatalogPage/CatalogPage.module.css';
 const CatalogPage = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 4;
+  const campers = useSelector((state) => state.campers);
+
   const dispatch = useDispatch();
 
-  dispatch(fetchCamperList());
+  useEffect(() => {
+    dispatch(fetchCamperList());
+  }, []);
+
+  console.log('campers', campers);
+
+  const handleLoadMoreBtn = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const startIndex = (currentPage - 1) * pageSize;
+  const visibleCampers = campers.campers.slice(
+    startIndex,
+    startIndex + pageSize
+  );
+
   return (
-    <section>
+    <section className={styles.catalogSection}>
       <div>
         <div className={styles.locationContainer}>
           <label htmlFor="location">Location</label>
@@ -98,8 +119,21 @@ const CatalogPage = () => {
           <button className={styles.searchBtn}>Search</button>
         </div>
       </div>
-      <div>
-        <Camper />
+      <div className={styles.sectionWrap}>
+        {visibleCampers.map((camper) => {
+          return (
+            <Camper
+              key={camper.id}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              camper={camper}
+            />
+          );
+        })}
+        {/* <Camper currentPage={currentPage} pageSize={pageSize} /> */}
+        <button className={styles.loadMoreBtn} onClick={handleLoadMoreBtn}>
+          Load more
+        </button>
       </div>
     </section>
   );

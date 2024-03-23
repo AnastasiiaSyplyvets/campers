@@ -1,0 +1,37 @@
+.modal {
+  width: 998px;
+  /* background-color: #e44848; */
+  /* margin-right: auto; */
+}
+
+.imgList {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.galleryImg {
+  border-radius: 10px;
+}
+.tabUl {
+  display: flex;
+  gap: 40px;
+}
+.tabBtn {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+
+  height: 50px;
+  cursor: pointer;
+
+  &:active {
+    color: tomato;
+  }
+}
+
+.current {
+  background-color: tomato;
+}
