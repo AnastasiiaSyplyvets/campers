@@ -8,7 +8,6 @@ import { Reviews } from '../Modal/Reviews';
 
 export const CamperModal = ({ camper }) => {
   const [activeTab, setactiveTab] = useState();
-  //   const [active, isActive] = useState(false);
 
   const ratingCount = (reviews) => {
     let total = 0;
@@ -23,7 +22,7 @@ export const CamperModal = ({ camper }) => {
 
   return (
     <div className={css.modal}>
-      <p>{camper.name}</p>
+      <p className={css.name}>{camper.name}</p>
       <div className={styles.camperInfo}>
         <p>
           <svg width="16px" height="16px">
@@ -38,7 +37,7 @@ export const CamperModal = ({ camper }) => {
           <p>{camper.location}</p>
         </div>
       </div>
-      <p>&euro; {camper.price}</p>
+      <p className={css.price}>&euro; {camper.price},00</p>
       <ul className={css.imgList}>
         <li>
           <img
@@ -69,16 +68,6 @@ export const CamperModal = ({ camper }) => {
       <div>
         <ul className={css.tabUl}>
           <li>
-            {/* <button
-              id="tabBtn"
-              className={css.tabBtn}
-              onClick={chooseActiveTab}
-              name="features"
-              type="button"
-            >
-              Features
-            </button> */}
-
             <a className={css.tabBtn} onClick={chooseActiveTab} name="features">
               Features
             </a>
@@ -87,14 +76,6 @@ export const CamperModal = ({ camper }) => {
             <a className={css.tabBtn} onClick={chooseActiveTab} name="reviews">
               Reviews
             </a>
-            {/* id="tabBtn"
-              className={css.tabBtn}
-              onClick={chooseActiveTab}
-              name="reviews"
-              type="button"
-            > */}
-
-            {/* </button> */}
           </li>
         </ul>
         <div>

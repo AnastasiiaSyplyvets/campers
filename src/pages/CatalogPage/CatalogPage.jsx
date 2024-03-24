@@ -18,8 +18,6 @@ const CatalogPage = () => {
     dispatch(fetchCamperList());
   }, []);
 
-  console.log('campers', campers);
-
   const handleLoadMoreBtn = () => {
     setCurrentPage(currentPage + 1);
   };
@@ -123,7 +121,7 @@ const CatalogPage = () => {
         {visibleCampers.map((camper) => {
           return (
             <Camper
-              key={camper.id}
+              key={camper._id}
               currentPage={currentPage}
               pageSize={pageSize}
               camper={camper}

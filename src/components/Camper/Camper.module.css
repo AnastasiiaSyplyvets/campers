@@ -97,3 +97,12 @@
   font-weight: 500;
   line-height: 24px;
 }
+
+.heartSvg {
+  &:hover {
+    fill: #e44848;
+  }
+  &:focus {
+    fill: #e44848;
+  }
+}

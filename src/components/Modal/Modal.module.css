@@ -1,7 +1,8 @@
 .modal {
   width: 998px;
-  /* background-color: #e44848; */
-  /* margin-right: auto; */
+
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .imgList {
@@ -34,4 +35,16 @@
 
 .current {
   background-color: tomato;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
 }

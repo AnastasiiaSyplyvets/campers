@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux';
 import styles from './Camper.module.css';
 import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
 import Modal from 'react-modal';
 import { CamperModal } from '../Modal/Modal';
+import { addFavorite } from '../../redux/operations';
+import { useDispatch } from 'react-redux';
 
 const customStyles = {
   content: {
@@ -16,9 +17,7 @@ const customStyles = {
   },
 };
 
-export const Camper = ({ currentPage, pageSize, camper }) => {
-  const campers = useSelector((state) => state.campers);
-  console.log(campers);
+export const Camper = ({ camper }) => {
   const [isModalOpen, setisModalOpen] = useState(false);
 
   const ratingCount = (reviews) => {
@@ -29,16 +28,6 @@ export const Camper = ({ currentPage, pageSize, camper }) => {
     return total / reviews.length;
   };
 
-  // const startIndex = (currentPage - 1) * pageSize;
-  // const visibleCampers = campers.campers.slice(
-  //   startIndex,
-  //   startIndex + pageSize
-  // );
-  // const handleShowMore = () => {
-  //   setisModalOpen((prevState) => {
-  //     setisModalOpen(!prevState);
-  //   });
-  // };
   function openModal() {
     setisModalOpen(true);
   }
@@ -47,8 +36,13 @@ export const Camper = ({ currentPage, pageSize, camper }) => {
   }
 
   Modal.setAppElement('#modal');
-  // return campers.campers.slice(0, 4)
-  // return visibleCampers.map((camper, index) => {
+
+  const dispatch = useDispatch();
+
+  const addToFavorite = (id) => {
+    dispatch(addFavorite(id));
+  };
+
   return (
     <>
       <div className={styles.camperWrap}>
@@ -62,9 +56,18 @@ export const Camper = ({ currentPage, pageSize, camper }) => {
         <div>
           <div className={styles.camperName}>
             <p className={styles.name}>{camper.name}</p>
-            <p>&euro; {camper.price}</p>
-            <button className={styles.heartBtn}>
-              <svg width="24px" height="24px" fill="#F2F4F7" stroke="#101828">
+            <p>&euro; {camper.price},00</p>
+            <button
+              onClick={() => addToFavorite(camper._id)}
+              className={styles.heartBtn}
+            >
+              <svg
+                className={styles.heartSvg}
+                width="24px"
+                height="24px"
+                fill="#F2F4F7"
+                stroke="#101828"
+              >
                 <use xlinkHref={sprite + '#icon-heart'}></use>
               </svg>
             </button>
@@ -113,7 +116,6 @@ export const Camper = ({ currentPage, pageSize, camper }) => {
               </button>
             </li>
             <li>
-              {' '}
               {camper.details.kitchen ? (
                 <button className={styles.categoryName} type="button">
                   <svg width="20px" height="20px">

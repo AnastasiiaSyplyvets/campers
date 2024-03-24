@@ -1,26 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { addFavorite, fetchCamperList } from '../../redux/operations';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Camper } from '../../components/Camper/Camper';
 
 const FavoritesPage = () => {
-  const dispatch = useDispatch();
-  const id = 'uHBIAJFTA-IKJwh5T9T4x';
+  const favorites = useSelector((state) => state.campers.favorites);
 
-  // useEffect(() => {
-  //   dispatch(fetchCamperList());
-  // }, []);
-
-  // dispatch(addFavorite(id));
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(fetchCamperList());
-      dispatch(addFavorite(id));
-    };
-
-    fetchData();
-  }, [dispatch, id]);
-  return <div>Favorites List</div>;
+  return (
+    <section>
+      {favorites.map((camper) => (
+        <Camper key={camper._id} camper={camper} />
+      ))}
+    </section>
+  );
 };
 
 export default FavoritesPage;

@@ -1,0 +1,116 @@
+.feature {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+
+  color: #101828;
+}
+
+.featuresTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+
+  margin-bottom: 48px;
+}
+
+.featuresContainer {
+  width: 430px;
+}
+
+.catBtn {
+  min-width: 126px;
+  height: 44px;
+  border: none;
+  border-radius: 100px;
+  padding: 12px, 18px, 12px, 18px;
+  background-color: #f2f4f7;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.catList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  width: 430px;
+  margin-bottom: 44px;
+  margin-top: 44px;
+}
+
+.partWrap {
+  width: 50%;
+  margin-top: 44px;
+
+  border: 1px solid RGBA(16, 24, 40, 0.2);
+  border-radius: 10px;
+}
+
+.mainWrap {
+  display: flex;
+  gap: 24px;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+
+  margin-bottom: 8px;
+}
+.formText {
+  font-size: 16px;
+
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+.inputForm {
+  width: 400px;
+  height: 56px;
+  padding: 18px, 337px, 18px, 18px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  border: none;
+
+  text-indent: 15px;
+}
+.commentInput {
+  width: 400px;
+  height: 114px;
+  padding: 18px, 308px, 76px, 18px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  border: none;
+
+  text-indent: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formBtn {
+  width: 160px;
+  height: 56px;
+  border-radius: 200px;
+  padding: 16px, 60px, 16px, 60px;
+
+  background-color: #e44848;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #ffffff;
+  border: none;
+  margin-top: 24px;
+}

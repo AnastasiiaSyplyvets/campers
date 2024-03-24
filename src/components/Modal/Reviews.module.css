@@ -1,0 +1,43 @@
+.wrap {
+  display: flex;
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: #f2f4f7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e44848;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.revwrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.userName {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.nameWrap {
+  height: 44px;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 24px;
+  color: #475467;
+}
