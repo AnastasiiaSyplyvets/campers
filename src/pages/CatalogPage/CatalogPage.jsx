@@ -8,25 +8,20 @@ import { useSelector } from 'react-redux';
 import sprite from '../../assets/sprite.svg';
 import styles from '../CatalogPage/CatalogPage.module.css';
 const CatalogPage = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 4;
   const campers = useSelector((state) => state.campers);
+  const [page, setPage] = useState(1);
+
+  console.log(campers);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCamperList());
-  }, []);
+    dispatch(fetchCamperList(page));
+  }, [page, dispatch]);
 
   const handleLoadMoreBtn = () => {
-    setCurrentPage(currentPage + 1);
+    setPage(page + 1);
   };
-
-  const startIndex = (currentPage - 1) * pageSize;
-  const visibleCampers = campers.campers.slice(
-    startIndex,
-    startIndex + pageSize
-  );
 
   return (
     <section className={styles.catalogSection}>
@@ -118,17 +113,10 @@ const CatalogPage = () => {
         </div>
       </div>
       <div className={styles.sectionWrap}>
-        {visibleCampers.map((camper) => {
-          return (
-            <Camper
-              key={camper._id}
-              currentPage={currentPage}
-              pageSize={pageSize}
-              camper={camper}
-            />
-          );
+        {campers.campers.map((camper) => {
+          return <Camper key={camper._id} camper={camper} />;
         })}
-        {/* <Camper currentPage={currentPage} pageSize={pageSize} /> */}
+
         <button className={styles.loadMoreBtn} onClick={handleLoadMoreBtn}>
           Load more
         </button>

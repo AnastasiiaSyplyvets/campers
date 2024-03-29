@@ -15,7 +15,12 @@ export const CamperSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCamperList.fulfilled, (state, action) => {
-        state.campers = action.payload;
+        const newCampers = action.payload.filter(
+          (item) =>
+            !state.campers.some((currentItem) => currentItem._id === item._id)
+        );
+
+        state.campers = [...state.campers, ...newCampers];
       })
       .addCase(fetchCamperList.pending, (state, action) => {
         state.isLoading = true;
