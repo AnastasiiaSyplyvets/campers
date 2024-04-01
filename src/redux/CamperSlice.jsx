@@ -19,7 +19,6 @@ export const CamperSlice = createSlice({
           (item) =>
             !state.campers.some((currentItem) => currentItem._id === item._id)
         );
-
         state.campers = [...state.campers, ...newCampers];
       })
       .addCase(fetchCamperList.pending, (state, action) => {
@@ -31,6 +30,18 @@ export const CamperSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
+        console.log(action.payload);
+        const filteredCamper = state.favorites.find(
+          (camper) => camper._id === action.payload._id
+        );
+        if (filteredCamper) {
+          return {
+            ...state,
+            favorites: state.favorites.filter(
+              (camper) => camper._id !== action.payload._id
+            ),
+          };
+        }
         state.favorites = [...state.favorites, action.payload];
       })
       .addCase(addFavorite.pending, (state, action) => {

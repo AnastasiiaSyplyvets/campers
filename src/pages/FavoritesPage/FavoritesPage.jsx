@@ -6,9 +6,9 @@ const FavoritesPage = () => {
 
   return (
     <section>
-      {favorites.map((camper) => (
-        <Camper key={camper._id} camper={camper} />
-      ))}
+      {favorites
+        ? favorites.map((camper) => <Camper key={camper._id} camper={camper} />)
+        : null}
     </section>
   );
 };
