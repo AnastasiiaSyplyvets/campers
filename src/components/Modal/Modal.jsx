@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Features } from '../Modal/Features';
 import { Reviews } from '../Modal/Reviews';
 
-export const CamperModal = ({ camper }) => {
+export const CamperModal = ({ camper, closeModal }) => {
   const [activeTab, setactiveTab] = useState();
 
   const ratingCount = (reviews) => {
@@ -22,6 +22,11 @@ export const CamperModal = ({ camper }) => {
 
   return (
     <div className={css.modal}>
+      <button onClick={closeModal} className={css.closeBtn}>
+        <svg width="32px" height="32px" stroke="#101828">
+          <use xlinkHref={sprite + '#icon-Rating-1'}></use>
+        </svg>
+      </button>
       <p className={css.name}>{camper.name}</p>
       <div className={styles.camperInfo}>
         <p>

@@ -163,7 +163,7 @@ export const Camper = ({ camper }) => {
             style={customStyles}
             contentLabel="Example Modal"
           >
-            <CamperModal camper={camper} />
+            <CamperModal camper={camper} closeModal={closeModal} />
           </Modal>
         </div>
       </div>
