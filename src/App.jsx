@@ -5,6 +5,7 @@ import CatalogPage from './pages/CatalogPage/CatalogPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import { HomePage } from './pages/HomePage/HomePage';
 
 // const test = import.meta.env.VITE_API_TEST;
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
+        <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
 

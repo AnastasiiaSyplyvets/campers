@@ -1,27 +1,12 @@
-import {
-  HeaderContainer,
-  Navigation,
-  StyledLink,
-  IconWrapper,
-} from './Header.styled';
-import sprite from 'assets/sprite.svg';
+import { HeaderContainer, Navigation, StyledLink } from './Header.styled';
 
 export const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-        <StyledLink to="/catalog">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Catalog
-        </StyledLink>
-        <StyledLink to="/favorites">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Favorites
-        </StyledLink>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/catalog">Catalog</StyledLink>
+        <StyledLink to="/favorites">Favorites</StyledLink>
       </Navigation>
     </HeaderContainer>
   );

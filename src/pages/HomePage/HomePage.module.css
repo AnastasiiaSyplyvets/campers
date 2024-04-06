@@ -1,0 +1,58 @@
+.titlePage {
+  font-size: 65px;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(97, 97, 116, 0.8487044475993523) 35%,
+    rgba(228, 72, 72, 1) 100%
+  );
+
+  background-clip: text;
+
+  color: transparent;
+
+  margin-bottom: 55px;
+}
+
+.mainImg {
+  border-radius: 20px;
+}
+
+.text {
+  width: 700px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: justify;
+}
+
+.mainBtn {
+  width: 166px;
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 200px;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(220, 66, 18, 0.9579481450783438) 32%,
+    rgba(255, 198, 198, 0.7590685932576156) 75%
+  );
+
+  position: absolute;
+  right: 600px;
+  color: #101828;
+}
+
+.wrap {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+}
