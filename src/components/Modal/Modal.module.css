@@ -59,3 +59,9 @@
   right: 40px;
   top: 20px;
 }
+
+.li {
+  height: 50px;
+  /* background-color: green; */
+  border-bottom: 5px solid #e44848;
+}

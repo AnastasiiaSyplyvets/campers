@@ -18,8 +18,9 @@ export const CamperModal = ({ camper, closeModal }) => {
   };
   const chooseActiveTab = (e) => {
     setactiveTab(e.target.name);
+    console.log(activeTab);
   };
-
+  console.log(activeTab);
   return (
     <div className={css.modal}>
       <button onClick={closeModal} className={css.closeBtn}>
@@ -72,12 +73,12 @@ export const CamperModal = ({ camper, closeModal }) => {
       <p className={styles.camperDescr}>{camper.description}</p>
       <div>
         <ul className={css.tabUl}>
-          <li>
+          <li className={activeTab === 'features' ? css.li : null}>
             <a className={css.tabBtn} onClick={chooseActiveTab} name="features">
               Features
             </a>
           </li>
-          <li>
+          <li className={activeTab === 'reviews' ? css.li : null}>
             <a className={css.tabBtn} onClick={chooseActiveTab} name="reviews">
               Reviews
             </a>
