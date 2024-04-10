@@ -19,6 +19,7 @@ const customStyles = {
 
 export const Camper = ({ camper }) => {
   const [isModalOpen, setisModalOpen] = useState(false);
+  const [active, setActive] = useState(false);
 
   const ratingCount = (reviews) => {
     let total = 0;
@@ -40,9 +41,14 @@ export const Camper = ({ camper }) => {
   const dispatch = useDispatch();
 
   const addToFavorite = (id) => {
+    if (active === true) {
+      setActive(false);
+    }
+    setActive(true);
+
     dispatch(addFavorite(id));
   };
-
+  console.log('active before render', active);
   return (
     <>
       <div className={styles.camperWrap}>
@@ -62,7 +68,7 @@ export const Camper = ({ camper }) => {
               className={styles.heartBtn}
             >
               <svg
-                className={styles.heartSvg}
+                className={active ? styles.active : styles.heartSvg}
                 width="24px"
                 height="24px"
                 fill="#F2F4F7"
