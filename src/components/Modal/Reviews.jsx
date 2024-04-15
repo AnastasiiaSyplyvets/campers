@@ -4,6 +4,8 @@ import sprite from '../../assets/sprite.svg';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 let orderSchema = object({
   name: string().required(),
@@ -77,6 +79,16 @@ export const Reviews = ({ camper }) => {
           }}
           onSubmit={(values, { setSubmitting }) => {
             console.log('submitted');
+            toast.success('Your booking is successfully submitted!', {
+              position: 'top-right',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'colored',
+            });
           }}
         >
           {({

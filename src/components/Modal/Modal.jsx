@@ -5,6 +5,7 @@ import css from './Modal.module.css';
 import { useState } from 'react';
 import { Features } from '../Modal/Features';
 import { Reviews } from '../Modal/Reviews';
+import { ToastContainer, toast } from 'react-toastify';
 
 export const CamperModal = ({ camper, closeModal }) => {
   const [activeTab, setactiveTab] = useState();
@@ -89,6 +90,7 @@ export const CamperModal = ({ camper, closeModal }) => {
           {activeTab === 'reviews' ? <Reviews camper={camper} /> : null}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
