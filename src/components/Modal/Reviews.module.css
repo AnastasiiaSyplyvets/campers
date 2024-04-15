@@ -41,3 +41,7 @@
   line-height: 24px;
   color: #475467;
 }
+
+.errorMsg {
+  color: red;
+}

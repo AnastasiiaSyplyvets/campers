@@ -82,6 +82,29 @@
 
   text-indent: 15px;
 }
+.inputSuccess {
+  width: 400px;
+  height: 56px;
+  padding: 18px, 337px, 18px, 18px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  border: none;
+
+  text-indent: 15px;
+  border: 3px solid #00b300;
+}
+.inputErr {
+  width: 400px;
+  height: 56px;
+  padding: 18px, 337px, 18px, 18px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  border: none;
+
+  text-indent: 15px;
+  border: 3px solid #ff0000;
+}
+
 .commentInput {
   width: 400px;
   height: 114px;

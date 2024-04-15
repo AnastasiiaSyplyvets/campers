@@ -2,7 +2,15 @@ import styles from '../Modal/Features.module.css';
 import css from '../Modal/Reviews.module.css';
 import sprite from '../../assets/sprite.svg';
 
-import { Formik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { object, string } from 'yup';
+
+let orderSchema = object({
+  name: string().required(),
+  email: string().email().required(),
+  bookingDate: string().required(),
+  comment: string(),
+});
 
 export const Reviews = ({ camper }) => {
   const stars = (review) => {
@@ -46,25 +54,10 @@ export const Reviews = ({ camper }) => {
         <p className={styles.formText}>
           Stay connected! We are always ready to help you.
         </p>
-        {/* <form className={styles.form}>
-          <input className={styles.inputForm} type="text" placeholder="Name" />
-          <input className={styles.inputForm} type="text" placeholder="Email" />
-          <input
-            className={styles.inputForm}
-            type="text"
-            placeholder="Booking date"
-          />
-          <input
-            className={styles.commentInput}
-            type="text"
-            placeholder="Comment"
-          />
-          <button className={styles.formBtn} type="submit">
-            Send
-          </button>
-        </form> */}
+
         <Formik
           initialValues={{ name: '', email: '', bookingDate: '', comment: '' }}
+          validationSchema={orderSchema}
           validate={(values) => {
             const errors = {};
             if (!values.email) {
@@ -96,9 +89,14 @@ export const Reviews = ({ camper }) => {
             isSubmitting,
             /* and other goodies */
           }) => (
-            <form className={styles.form} onSubmit={handleSubmit}>
-              <input
-                className={styles.inputForm}
+            <Form className={styles.form} onSubmit={handleSubmit}>
+              <Field
+                className={
+                  (touched.name && !errors.name ? styles.inputSuccess : null) ||
+                  (touched.name && errors.name
+                    ? styles.inputErr
+                    : styles.inputForm)
+                }
                 type="text"
                 placeholder="Name"
                 name="name"
@@ -106,9 +104,23 @@ export const Reviews = ({ camper }) => {
                 onBlur={handleBlur}
                 value={values.name}
               />
-              {errors.name && touched.name && errors.name}
-              <input
-                className={styles.inputForm}
+              {touched.name && errors.name ? (
+                <ErrorMessage
+                  className={css.errorMsg}
+                  name="name"
+                  component="div"
+                />
+              ) : null}
+
+              <Field
+                className={
+                  (touched.email && !errors.email
+                    ? styles.inputSuccess
+                    : null) ||
+                  (touched.email && errors.email
+                    ? styles.inputErr
+                    : styles.inputForm)
+                }
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -116,9 +128,20 @@ export const Reviews = ({ camper }) => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              {errors.email && touched.email && errors.email}
-              <input
-                className={styles.inputForm}
+              <ErrorMessage
+                className={css.errorMsg}
+                name="email"
+                component="div"
+              />
+              <Field
+                className={
+                  (touched.bookingDate && !errors.bookingDate
+                    ? styles.inputSuccess
+                    : null) ||
+                  (touched.bookingDate && errors.bookingDate
+                    ? styles.inputErr
+                    : styles.inputForm)
+                }
                 type="text"
                 placeholder="Booking date"
                 name="bookingDate"
@@ -126,8 +149,13 @@ export const Reviews = ({ camper }) => {
                 onBlur={handleBlur}
                 value={values.bookingDate}
               />
-              {errors.bookingDate && touched.bookingDate && errors.bookingDate}
-              <input
+
+              <ErrorMessage
+                className={css.errorMsg}
+                name="bookingDate"
+                component="div"
+              />
+              <Field
                 className={styles.commentInput}
                 type="text"
                 placeholder="Comment"
@@ -136,7 +164,12 @@ export const Reviews = ({ camper }) => {
                 onBlur={handleBlur}
                 value={values.comment}
               />
-              {errors.comment && touched.comment && errors.comment}
+
+              <ErrorMessage
+                className={css.errorMsg}
+                name="comment"
+                component="div"
+              />
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -144,7 +177,7 @@ export const Reviews = ({ camper }) => {
               >
                 Submit
               </button>
-            </form>
+            </Form>
           )}
         </Formik>
       </div>
