@@ -31,3 +31,37 @@ export const addFavorite = createAsyncThunk(
     }
   }
 );
+
+export const filterCampers = createAsyncThunk(
+  'campers/filtered',
+  async (value, thunkAPI) => {
+    try {
+      const campers = await axios.get('/campers');
+      // console.log(value);
+
+      // работает по типу траспорта
+      // const campers = await axios.get(`/campers?form=${value}`);
+      // return campers.data;
+
+      console.log(campers.data);
+      // let filteredCampers = [];
+
+      // for (const item of campers.data) {
+      //   if (item.details[value] !== 0) {
+      //     filteredCampers.push(item);
+
+      // item.details.airConditioner !== 0
+      //item.transmission === "automatic"
+      // item.details.kitchen !==0
+      // item.details.TV !== 0
+      // item.details.shower !==0 || item.details.toilet !== 0
+      //   }
+      // }
+      // console.log(filteredCampers);
+      // return filteredCampers;
+      return campers.data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -48,7 +48,7 @@ export const Camper = ({ camper }) => {
 
     dispatch(addFavorite(id));
   };
-  console.log('active before render', active);
+
   return (
     <>
       <div className={styles.camperWrap}>

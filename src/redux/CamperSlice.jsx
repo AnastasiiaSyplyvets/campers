@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCamperList, addFavorite } from './operations';
+import { fetchCamperList, addFavorite, filterCampers } from './operations';
 // import storage from 'redux-persist/lib/storage';
 
 export const CamperSlice = createSlice({
   name: 'camper',
   initialState: {
     campers: [],
-    filter: '',
+    filter: [],
     favorites: [],
     isLoading: false,
     error: null,
@@ -51,6 +51,12 @@ export const CamperSlice = createSlice({
       .addCase(addFavorite.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(filterCampers.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        console.log(action.payload);
       });
   },
 });

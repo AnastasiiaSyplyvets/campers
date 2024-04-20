@@ -14,6 +14,8 @@
 
   border-radius: 10px;
   background-color: transparent;
+  width: 100px;
+  height: 100px;
 }
 
 .title {
@@ -90,4 +92,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.inputCheckBox {
+  display: none;
+
+  width: 100%;
+  height: 100%;
 }
