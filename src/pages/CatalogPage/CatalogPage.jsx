@@ -9,7 +9,10 @@ import sprite from '../../assets/sprite.svg';
 import styles from '../CatalogPage/CatalogPage.module.css';
 const CatalogPage = () => {
   const campers = useSelector((state) => state.campers);
+  const filteredCampers = useSelector((state) => state.campers.filter);
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState();
+  const [checked, setChecked] = useState(false);
 
   // console.log(campers);
 
@@ -26,9 +29,17 @@ const CatalogPage = () => {
   const handleCheckbox = (e) => {
     console.log(e.target.value);
     const value = e.target.value;
-    dispatch(filterCampers(value));
+    setFilter(value);
+    setChecked((prevState) => !prevState);
   };
 
+  const handleSubmitFilters = () => {
+    console.log('filter', filter);
+    dispatch(filterCampers(filter));
+  };
+
+  console.log(filteredCampers);
+  console.log(campers);
   return (
     <section className={styles.catalogSection}>
       <div>
@@ -51,7 +62,7 @@ const CatalogPage = () => {
         </div>
 
         <div className={styles.container}>
-          <h3 className={styles.title}>Filters</h3>
+          <h3 className={styles.filters}>Filters</h3>
           <ul className={styles.list}>
             <li>
               <label htmlFor="airConditioner" className={styles.camperBtn}>
@@ -63,7 +74,7 @@ const CatalogPage = () => {
                   name="airConditioner"
                   value="airConditioner"
                 ></input>
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use xlinkHref={sprite + '#icon-Vertical-container'}></use>
                 </svg>
               </label>
@@ -78,7 +89,7 @@ const CatalogPage = () => {
                   value="automatic"
                   className={styles.inputCheckBox}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use xlinkHref={sprite + '#icon-Horizontal-container'}></use>
                 </svg>
               </label>
@@ -93,7 +104,7 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use
                     xlinkHref={sprite + '#icon-Horizontal-container-1'}
                   ></use>
@@ -110,7 +121,7 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use xlinkHref={sprite + '#icon-Container'}></use>
                 </svg>
               </label>
@@ -125,7 +136,7 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use xlinkHref={sprite + '#icon-Container-1'}></use>
                 </svg>
               </label>
@@ -143,7 +154,7 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use xlinkHref={sprite + '#icon-Button-container'}></use>
                 </svg>
               </label>
@@ -158,7 +169,7 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px">
                   <use xlinkHref={sprite + '#icon-Button-container-1'}></use>
                 </svg>
               </label>
@@ -170,23 +181,35 @@ const CatalogPage = () => {
                   name="alcove"
                   id="alcove"
                   value="alcove"
+                  // className={
+                  //   checked ? styles.checkedInput : styles.inputCheckBox
+                  // }
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
+                  // checked={true}
                 />
-                <svg width="95px" height="95px">
+                <svg width="114px" height="95px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Button-container-2'}></use>
                 </svg>
               </label>
             </li>
           </ul>
-          <button className={styles.searchBtn}>Search</button>
+          <button onClick={handleSubmitFilters} className={styles.searchBtn}>
+            Search
+          </button>
         </div>
       </div>
       <div className={styles.sectionWrap}>
-        {campers.campers.map((camper) => {
+        {/* {campers.campers.map((camper) => {
           return <Camper key={camper._id} camper={camper} />;
-        })}
-
+        })} */}
+        {filteredCampers.length !== 0
+          ? filteredCampers.map((camper) => {
+              return <Camper key={camper._id} camper={camper} />;
+            })
+          : campers.campers.map((camper) => {
+              return <Camper key={camper._id} camper={camper} />;
+            })}
         <button className={styles.loadMoreBtn} onClick={handleLoadMoreBtn}>
           Load more
         </button>

@@ -55,7 +55,7 @@ export const CamperSlice = createSlice({
       .addCase(filterCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-
+        state.filter = action.payload;
         console.log(action.payload);
       });
   },
