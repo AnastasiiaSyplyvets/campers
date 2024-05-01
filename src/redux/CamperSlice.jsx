@@ -30,7 +30,6 @@ export const CamperSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
-        console.log(action.payload);
         const filteredCamper = state.favorites.find(
           (camper) => camper._id === action.payload._id
         );
@@ -56,7 +55,14 @@ export const CamperSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.filter = action.payload;
-        console.log(action.payload);
+      })
+      .addCase(filterCampers.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(filterCampers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });

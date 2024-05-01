@@ -20,12 +20,20 @@ export const addFavorite = createAsyncThunk(
   'campers/favorite',
 
   async (id, thunkAPI) => {
+    console.log(id);
     try {
       const campers = await thunkAPI.getState().campers.campers;
+      const filteredCampers = await thunkAPI.getState().campers.filter;
 
       const res = campers.find((camper) => camper._id === id);
 
-      return res;
+      if (res) {
+        return res;
+      }
+
+      const filteredRes = filteredCampers.find((camper) => camper._id === id);
+
+      return filteredRes;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
