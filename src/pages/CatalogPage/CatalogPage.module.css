@@ -14,8 +14,6 @@
 
   border-radius: 10px;
   background-color: transparent;
-  width: 100px;
-  height: 100px;
 }
 
 .title {
@@ -54,9 +52,10 @@
   background-color: #f7f7f7;
   margin-top: 8px;
   margin-bottom: 32px;
+  padding-left: 40px;
 
   &::placeholder {
-    text-indent: 40px;
+    text-indent: 10px;
   }
 }
 
@@ -88,7 +87,9 @@
   margin-top: 50px;
   margin-bottom: 20px;
 }
-
+.loadMoreBtn:hover {
+  border: 1px solid #e44848;
+}
 .sectionWrap {
   display: flex;
   flex-direction: column;
@@ -101,28 +102,25 @@
   width: 100%;
   height: 100%;
 }
-
-.svgBtn:hover {
-  border: 2px solid red;
-}
-
-/* .camperBtn input[type='checkbox']:checked {
-  border: 3px sold greenyellow;
-} */
-
-/* .inputCheckBox:checked + .svgBtn {
-  border: 2px solid green;
-} */
-
-/* .svgBtn {
-  /* width: 100%;
-  height: 100%; */
-/* border: 2px solid green; */
-/* } */
 .filters {
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   font: inter;
   color: #475467;
+}
+
+.buttonContainer {
+  border: 1px solid RGBA(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 17px, 18px, 17px, 18px;
+
+  width: 114px;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonContainer:hover {
+  border: 1px solid #e44848;
 }

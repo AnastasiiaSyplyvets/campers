@@ -107,7 +107,7 @@ export const Camper = ({ camper }) => {
             </li>
             <li>
               <button className={styles.categoryName} type="button">
-                <svg width="20px" height="20px" fill="#101828">
+                <svg width="20px" height="20px">
                   <use xlinkHref={sprite + '#icon-Container-2'}></use>
                 </svg>
                 {camper.transmission}
@@ -136,7 +136,7 @@ export const Camper = ({ camper }) => {
             <li>
               {camper.details.beds ? (
                 <button className={styles.categoryName} type="button">
-                  <svg width="20px" height="20px" fill="#fffff">
+                  <svg width="20px" height="20px">
                     <use xlinkHref={sprite + '#icon-Container-3'}></use>
                   </svg>
                   {camper.details.beds} beds
@@ -146,7 +146,7 @@ export const Camper = ({ camper }) => {
             <li>
               {camper.details.airConditioner ? (
                 <button className={styles.categoryName} type="button">
-                  <svg width="20px" height="20px" stroke="#101828">
+                  <svg width="20px" height="20px">
                     <use xlinkHref={sprite + '#icon-Vertical-container'}></use>
                   </svg>
                   AC

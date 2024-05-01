@@ -12,9 +12,6 @@ const CatalogPage = () => {
   const filteredCampers = useSelector((state) => state.campers.filter);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState();
-  const [checked, setChecked] = useState(false);
-
-  // console.log(campers);
 
   const dispatch = useDispatch();
 
@@ -27,19 +24,14 @@ const CatalogPage = () => {
   };
 
   const handleCheckbox = (e) => {
-    console.log(e.target.value);
     const value = e.target.value;
     setFilter(value);
-    setChecked((prevState) => !prevState);
   };
 
   const handleSubmitFilters = () => {
-    console.log('filter', filter);
     dispatch(filterCampers(filter));
   };
 
-  console.log(filteredCampers);
-  console.log(campers);
   return (
     <section className={styles.catalogSection}>
       <div>
@@ -64,7 +56,7 @@ const CatalogPage = () => {
         <div className={styles.container}>
           <h3 className={styles.filters}>Filters</h3>
           <ul className={styles.list}>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="airConditioner" className={styles.camperBtn}>
                 <input
                   onClick={handleCheckbox}
@@ -74,12 +66,12 @@ const CatalogPage = () => {
                   name="airConditioner"
                   value="airConditioner"
                 ></input>
-                <svg width="114px" height="95px">
+                <svg width="32px" height="60px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Vertical-container'}></use>
                 </svg>
               </label>
             </li>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="automatic" className={styles.camperBtn}>
                 <input
                   onClick={handleCheckbox}
@@ -89,12 +81,12 @@ const CatalogPage = () => {
                   value="automatic"
                   className={styles.inputCheckBox}
                 />
-                <svg width="114px" height="95px">
+                <svg width="79px" height="60px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Horizontal-container'}></use>
                 </svg>
               </label>
             </li>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="kitchen" className={styles.camperBtn}>
                 <input
                   type="checkbox"
@@ -104,14 +96,14 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="114px" height="95px">
+                <svg width="59px" height="60px" className={styles.svgBtn}>
                   <use
                     xlinkHref={sprite + '#icon-Horizontal-container-1'}
                   ></use>
                 </svg>
               </label>
             </li>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="TV" className={styles.camperBtn}>
                 <input
                   type="checkbox"
@@ -121,12 +113,12 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="114px" height="95px">
+                <svg width="32px" height="60px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Container'}></use>
                 </svg>
               </label>
             </li>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="toilet" className={styles.camperBtn}>
                 <input
                   type="checkbox"
@@ -136,7 +128,7 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="114px" height="95px">
+                <svg width="90px" height="60px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Container-1'}></use>
                 </svg>
               </label>
@@ -144,7 +136,7 @@ const CatalogPage = () => {
           </ul>
           <h3 className={styles.title}>Vehicle type</h3>
           <ul className={styles.list}>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="panelTruck" className={styles.camperBtn}>
                 <input
                   type="checkbox"
@@ -154,12 +146,12 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="114px" height="95px">
+                <svg width="40px" height="57px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Button-container'}></use>
                 </svg>
               </label>
             </li>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="fullyIntegrated" className={styles.camperBtn}>
                 <input
                   type="checkbox"
@@ -169,26 +161,22 @@ const CatalogPage = () => {
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
                 />
-                <svg width="114px" height="95px">
+                <svg width="80px" height="76px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Button-container-1'}></use>
                 </svg>
               </label>
             </li>
-            <li>
+            <li className={styles.buttonContainer}>
               <label htmlFor="alcove" className={styles.camperBtn}>
                 <input
                   type="checkbox"
                   name="alcove"
                   id="alcove"
                   value="alcove"
-                  // className={
-                  //   checked ? styles.checkedInput : styles.inputCheckBox
-                  // }
                   className={styles.inputCheckBox}
                   onClick={handleCheckbox}
-                  // checked={true}
                 />
-                <svg width="114px" height="95px" className={styles.svgBtn}>
+                <svg width="52px" height="56px" className={styles.svgBtn}>
                   <use xlinkHref={sprite + '#icon-Button-container-2'}></use>
                 </svg>
               </label>

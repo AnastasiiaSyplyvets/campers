@@ -24,7 +24,7 @@ export const Features = ({ camper }) => {
           </li>
           <li>
             <button className={styles.catBtn} type="button">
-              <svg width="20px" height="20px" stroke="#101828">
+              <svg width="20px" height="20px">
                 <use xlinkHref={sprite + '#icon-Vertical-container'}></use>
               </svg>{' '}
               AC
